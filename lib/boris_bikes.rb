@@ -1,5 +1,7 @@
 class Bike
 
+	attr_accessor :rented_at
+
 	def initialize
 		@broken
 	end
@@ -15,5 +17,6 @@ class Bike
 	def fix!
 		@broken = false
 	end
+
 
 end

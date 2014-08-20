@@ -23,12 +23,4 @@ class Person
 
 end
 
-person = Person.new(:bike)
-puts person.inspect
-begin
-	person.has_bike?
-rescue RuntimeError => e
-	 puts e.message
-	end
-puts "hello"
 

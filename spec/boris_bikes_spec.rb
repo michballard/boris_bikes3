@@ -25,4 +25,9 @@ describe 'bike' do
 		expect(bike).not_to be_broken
 	end
 
+	it 'should know when it was hired' do
+		bike.rented_at= Time.now
+		expect(bike.rented_at.round(0)).to eq(Time.now.round(0))
+	end
+
 end
