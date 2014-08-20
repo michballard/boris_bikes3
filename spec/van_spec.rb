@@ -32,4 +32,12 @@ describe Van do
 		expect(van.bike_count).to eq(0)
 	end
 
+	it 'generates an error message when trying to release a bike when the van is empty' do
+		expect(van.release).to eq("This van has no bikes")
+	end
+
+	xit 'generates an error message when trying to release a bike when the van is empty' do
+		expect{van.release}.to raise_error(CustomError)
+	end
+
 end
