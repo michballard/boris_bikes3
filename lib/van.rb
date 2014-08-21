@@ -10,5 +10,17 @@ class Van
 		@bikes = []
 	end
 
+	def collect_broken_bikes_from(station)
+		until station.broken_bikes.empty?
+			accept(station.release_a_bike)
+		end
+	end
+
+	def release_broken_bikes_to(garage)
+		until self.broken_bikes.empty?
+			garage.accept(release_a_bike)
+		end
+	end
+
 end
 

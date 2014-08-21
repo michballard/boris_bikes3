@@ -45,18 +45,18 @@ shared_examples_for 'a bike container' do
 		receive_rented_at
 		allow(bike).to receive(:rented_at=)
 		container.accept(bike)
-		container.release
+		container.release_a_bike
 		expect(container.bike_count).to eq(0)
 	end
 
 	it "when releasing a bike it returns a bike" do 
 		allow(bike).to receive(:rented_at=).with(anything())
 		container.accept(bike)
-		expect(container.release).to eq bike
+		expect(container.release_a_bike).to eq bike
 	end
 
 	it 'generates an error message when trying to release a bike when the container is empty' do
-		expect{container.release}.to raise_error CustomError
+		expect{container.release_a_bike}.to raise_error CustomError
 	end
 
 	it 'can provide a list of broken bikes' do
@@ -75,7 +75,7 @@ shared_examples_for 'a bike container' do
 
 	it "should not accept a bike it is full" do
 		fill_holder holder
-		expect{holder.accept(bike)}.to raise_error "Station is full"
+		expect{holder.accept(bike)}.to raise_error(RuntimeError)
 	end
 
 	it "should not accept a bike that is not there" do

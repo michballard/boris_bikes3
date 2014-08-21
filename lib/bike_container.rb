@@ -23,16 +23,17 @@ module BikeContainer
 		end
 
 		def accept(bike)
-			bikes << bike
+			raise "This #{self.class.to_s.downcase} is full" if full?	
+			@bikes << bike
 		end
 
 		def bike_count
 			bikes.count 
 		end	
 
-		def release(bikes_for_release = bikes)
+		def release_a_bike
 			raise CustomError.new("This container has no bikes") if empty?
-			after_release(bikes_for_release.pop)
+			@bikes.pop
 		end
 
 		def after_release(bike)

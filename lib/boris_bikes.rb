@@ -4,6 +4,7 @@ class Bike
 
 	def initialize
 		@broken
+		@rented_at = nil
 	end
 
 	def broken?

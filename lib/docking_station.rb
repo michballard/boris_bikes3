@@ -18,20 +18,26 @@ class DockingStation
 
 	def accept(bike)
 		raise "Nothing to dock" if bike == nil
-		raise "Station is full" if full?	
-		super
-		if !bike.rented_at.nil?
-			return "Please pay for bike" if rental_time(bike) >= HALF_HOUR
+		if bike.rented_at.nil?
+			super
+		elsif rental_time(bike) >= HALF_HOUR
+			super
+			return "Please pay for bike"
+		else
+			super
+			return "Thank you"	
 		end
 	end
 
 	def rental_time(bike)
-		(Time.now - bike.rented_at) 
+		(Time.now - bike.rented_at)
 	end
 
-	def release_to_person(person)
-		person.gets release(available_bikes) if available_bikes.any? 
+	def release_bike_to(person)
 		raise NoAvailableBikesError unless available_bikes.any? 
+		bike_to_be_rented = release_a_bike
+		bike_to_be_rented.rented_at = Time.now
+		person.gets bike_to_be_rented
 	end
 
 end
