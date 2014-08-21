@@ -1,7 +1,5 @@
 require 'boris_bikes'
 
-
-
 describe 'bike' do
 
 	let (:bike) { Bike.new }
@@ -29,5 +27,9 @@ describe 'bike' do
 		bike.rented_at= Time.now
 		expect(bike.rented_at.round(0)).to eq(Time.now.round(0))
 	end
+
+	# it 'should create a unique serial number' do
+	# 	# expect(bike.serial_number).to match(//^[A-Z]{2}\-[/d{5}/])
+	# end
 
 end

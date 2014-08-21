@@ -31,8 +31,4 @@ describe 'Person' do
 		expect(person_with_bike).not_to have_bike
 	end
 
-	# it 'receives an error message when there is no bike' do
-	# 	expect{person.has_bike?}.to raise_error(RuntimeError)
-	# end 
-
 end

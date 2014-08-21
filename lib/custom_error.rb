@@ -5,3 +5,9 @@ class CustomError < StandardError
 	end
 
 end
+
+class NoAvailableBikesError < StandardError
+end
+
+class StationFullError < StandardError
+end
