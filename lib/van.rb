@@ -22,5 +22,16 @@ class Van
 		end
 	end
 
+	def collect_available_bikes_from(garage)
+		until garage.available_bikes.empty?
+			accept(garage.release_a_bike)
+		end
+	end
+
+	def release_fixed_bikes_to(station)
+		until self.available_bikes.empty?
+			station.accept(release_a_bike)
+		end
+	end
 end
 
